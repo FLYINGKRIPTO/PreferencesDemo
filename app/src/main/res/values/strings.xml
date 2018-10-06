@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">UdemyApp51_preferences</string>
+    <string-array name="font_sizes">
+        <item>25dp</item>
+        <item>30dp</item>
+        <item>35dp</item>
+        <item>40dp</item>
+        <item>45dp</item>
+        <item>50dp</item>
+        <item>55dp</item>
+        <item>60dp</item>
+
+    </string-array>
+    <string-array name="font_size_values">
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+        <item>50</item>
+        <item>55</item>
+        <item>60</item>
+
+    </string-array>
 </resources>
