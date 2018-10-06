@@ -84,12 +84,33 @@ public class MainActivity extends AppCompatActivity {
             txt_2.setTypeface(fontNumber3);
         }
     }
+    public void specifyTheFontForTextView3(){
+        boolean fontNumber1ForText3Value;
+        boolean fontNumber2ForText3Value;
+        boolean fontNumber3ForText3Value;
+
+
+        fontNumber1ForText3Value = sharedPreferences.getBoolean("CHECKBOX_FONT_NUMBER1_TEXT3",false);
+        fontNumber2ForText3Value = sharedPreferences.getBoolean("CHECKBOX_FONT_NUMBER2_TEXT3",false);
+        fontNumber3ForText3Value = sharedPreferences.getBoolean("CHECKBOX_FONT_NUMBER3_TEXT3",false);
+
+        if(fontNumber1ForText3Value){
+            txt_3.setTypeface(fontNumber1);
+        }
+        else if(fontNumber2ForText3Value){
+            txt_3.setTypeface(fontNumber2);
+        }
+        else if(fontNumber3ForText3Value){
+            txt_3.setTypeface(fontNumber3);
+        }
+    }
     @Override
     protected void onResume() {
         super.onResume();
         Toast.makeText(MainActivity.this,"onResume Method is called",Toast.LENGTH_SHORT).show();
           specifyTheFontForTextView1();
           specifyTheFontForTextView2();
+          specifyTheFontForTextView3();
      }
 
     @Override
