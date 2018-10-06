@@ -104,6 +104,22 @@ public class MainActivity extends AppCompatActivity {
             txt_3.setTypeface(fontNumber3);
         }
     }
+
+    public void specifyTheSizeForTextView1(){
+         textView1Size = sharedPreferences.getString("FONT_SIZE_TEXT1","20");
+         txt_1.setTextSize(Float.parseFloat(textView1Size));
+
+    }
+    public void specifyTheSizeForTextView2(){
+        textView2Size = sharedPreferences.getString("FONT_SIZE_TEXT2","20");
+        txt_2.setTextSize(Float.parseFloat(textView2Size));
+
+    }
+    public void specifyTheSizeForTextView3(){
+        textView3Size = sharedPreferences.getString("FONT_SIZE_TEXT3","20");
+        txt_3.setTextSize(Float.parseFloat(textView3Size));
+
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -111,6 +127,9 @@ public class MainActivity extends AppCompatActivity {
           specifyTheFontForTextView1();
           specifyTheFontForTextView2();
           specifyTheFontForTextView3();
+          specifyTheSizeForTextView1();
+        specifyTheSizeForTextView2();
+        specifyTheSizeForTextView3();
      }
 
     @Override
