@@ -1,7 +1,10 @@
 package com.example.dell.udemyapp51_preferences;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -11,6 +14,17 @@ public class MainActivity extends AppCompatActivity {
     TextView txt_1;
     TextView txt_2;
     TextView txt_3;
+
+    Typeface fontNumber1;
+    Typeface fontNumber2;
+    Typeface fontNumber3;
+
+    String textView1Size;
+    String textView2Size;
+    String textView3Size;
+
+    SharedPreferences sharedPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id){
             case R.id.settings:
-
-
+                Intent intent = new Intent(MainActivity.this,PreferencesActivity.class);
+                startActivity(intent);
                 break;
 
         }
