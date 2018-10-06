@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +36,61 @@ public class MainActivity extends AppCompatActivity {
         txt_1 = findViewById(R.id.txtno1);
         txt_2 = findViewById(R.id.txtno2);
         txt_3 = findViewById(R.id.txtno3);
+
+        fontNumber1 = Typeface.createFromAsset(getAssets(),"fonts/quick_fuse.otf");
+        fontNumber2 = Typeface.createFromAsset(getAssets(),"fonts/emerald_grey.otf");
+        fontNumber3 = Typeface.createFromAsset(getAssets(),"fonts/construction_lines.otf");
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
     }
+    public void specifyTheFontForTextView1(){
+        boolean fontNumber1ForText1Value;
+        boolean fontNumber2ForText1Value;
+        boolean fontNumber3ForText1Value;
+
+
+        fontNumber1ForText1Value = sharedPreferences.getBoolean("CHECKBOX_FONT_NUMBER1_TEXT1",false);
+        fontNumber2ForText1Value = sharedPreferences.getBoolean("CHECKBOX_FONT_NUMBER2_TEXT1",false);
+        fontNumber3ForText1Value = sharedPreferences.getBoolean("CHECKBOX_FONT_NUMBER3_TEXT1",false);
+
+        if(fontNumber1ForText1Value){
+            txt_1.setTypeface(fontNumber1);
+        }
+        else if(fontNumber2ForText1Value){
+            txt_1.setTypeface(fontNumber2);
+        }
+        else if(fontNumber3ForText1Value){
+            txt_1.setTypeface(fontNumber3);
+        }
+    }
+
+    public void specifyTheFontForTextView2(){
+        boolean fontNumber1ForText2Value;
+        boolean fontNumber2ForText2Value;
+        boolean fontNumber3ForText2Value;
+
+
+        fontNumber1ForText2Value = sharedPreferences.getBoolean("CHECKBOX_FONT_NUMBER1_TEXT2",false);
+        fontNumber2ForText2Value = sharedPreferences.getBoolean("CHECKBOX_FONT_NUMBER2_TEXT2",false);
+        fontNumber3ForText2Value = sharedPreferences.getBoolean("CHECKBOX_FONT_NUMBER3_TEXT2",false);
+
+        if(fontNumber1ForText2Value){
+            txt_2.setTypeface(fontNumber1);
+        }
+        else if(fontNumber2ForText2Value){
+            txt_2.setTypeface(fontNumber2);
+        }
+        else if(fontNumber3ForText2Value){
+            txt_2.setTypeface(fontNumber3);
+        }
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(MainActivity.this,"onResume Method is called",Toast.LENGTH_SHORT).show();
+          specifyTheFontForTextView1();
+          specifyTheFontForTextView2();
+     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
